@@ -10,6 +10,12 @@ script:
 
 after_success:
   - docker build -t mike2mike/multi-client ./client
-  - docker build -t mike2mike/multi-nginx ./client
+  - docker build -t mike2mike/multi-nginx ./nginx
   - docker build -t mike2mike/multi-server ./server
   - docker build -t mike2mike/multi-worker ./worker
+  # Login
+  - echo "$D_PW" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push mike2mike/multi-client
+  - docker push mike2mike/multi-nginx
+  - docker push mike2mike/multi-server
+  - docker push mike2mike/multi-worker
