@@ -7,6 +7,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json())
 
+
+console.log("connecting to PG DB:", keys.PGUSER, keys.PGHOST, keys.PG_DATABASE, keys.PG_PASSWORD, keys.PG_PORT);
 // Postgres Client Setup
 const { Pool } = require('pg');
 const pgClient = new Pool({
@@ -19,7 +21,7 @@ const pgClient = new Pool({
 
 pgClient.connect();
 
-console.log("connecting to PG DB:", keys.PGUSER, keys.PGHOST, keys.PG_DATABASE, keys.PG_PASSWORD, keys.PG_PORT);
+
 
 pgClient.on('error', () => console.log("PG Connection Lost"))
 
