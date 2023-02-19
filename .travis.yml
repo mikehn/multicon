@@ -24,6 +24,7 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
+  edge: true
   region: 'eu-west-3'
   app: 'multicon'
   env: 'Multicon-env'
@@ -31,5 +32,5 @@ deploy:
   bucket_path: 'docker-multi'
   on:
     branch: master
-access_key_id: $AWS_ACCESS_KEY
-secret_access_key: $AWS_SECRET_KEY
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
