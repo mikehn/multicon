@@ -13,8 +13,8 @@ services:
       - REDIS_PORT=$REDIS_PORT
       - PGUSER=$PGUSER
       - PGHOST=$PGHOST
-      - PG_DATABASE=$PGDATABASE
-      - PG_PASSWORD=$PGPASSWORD
+      - PG_DATABASE=$PG_DATABASE
+      - PG_PASSWORD=$PG_PASSWORD
       - PG_PORT=$PGPORT
   worker:
     image: 'cygnetops/multi-worker-10-14'
